@@ -1,24 +1,42 @@
+using Globomantics.Interfaces.Services;
+using Globomantics.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Globomantics.Web
 {
     public class Startup
     {
+        // Called First
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            //You can add only what U need (without overkilling)
+
+            //MVC application 
+            //before .Net Core 2 we used to write AddMvc() to add everything MVC offers but this is an overkill
+            services.AddControllersWithViews();
+
+            //Enough for API only
+            //services.AddControllers();
+
+            //Enough for Razor pages
+            //services.AddRazorPages();
+
+            //My own "Services"
+            //"Services" stands for interfaces and implementations
+            services.AddSingleton<IConferenceService, ConferenceMemoryService>();
+
         }
 
+        // Called Second
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        // The pipeline components are called middleware, for ex. we can add
+        // Authentication -> MVC -> Serve static files
+        // The ORDER OF THE MIDDLEWARE IS IMPORTANT! 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
@@ -26,14 +44,36 @@ namespace Globomantics.Web
                 app.UseDeveloperExceptionPage();
             }
 
+            //Before UseRouting(), because it doesn't need routing information
+            //js and css files
+            app.UseStaticFiles();
+
+
+            //Should be called before UseEndpoints()
+            //app.UseAuthentication();
+
+
+            // From moment on,  all the middleware THAT FOLLOWES
+            // knows about the selected endpoint and use this info
+            // if needed
             app.UseRouting();
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapGet("/", async context =>
-                {
-                    await context.Response.WriteAsync("Hello World!");
-                });
+                //endpoints.MapGet("/", async context =>
+                //{
+                //    await context.Response.WriteAsync("Hello World!");
+                //});
+
+
+                //For MVC conventional routing with routing table
+                endpoints.MapControllerRoute(
+                    name: "Default",
+                    pattern: "{controller=Conference}/{action=Index}/{id?}");
+
+
+                //For Attribute routing
+                //endpoints.MapControllers();
             });
         }
     }

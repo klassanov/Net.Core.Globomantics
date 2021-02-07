@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30717.126
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Globomantics.Web", "Globomantics.Web\Globomantics.Web.csproj", "{40AB30E8-E003-44C0-91A6-DAC08EF4DD33}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Globomantics.Web", "Globomantics.Web\Globomantics.Web.csproj", "{40AB30E8-E003-44C0-91A6-DAC08EF4DD33}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Globomantics.Interfaces", "Globomantics.Interfaces\Globomantics.Interfaces.csproj", "{FEB797F3-672D-4569-AFC0-DDF0512652EB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Globomantics.Services", "Globomantics.Services\Globomantics.Services.csproj", "{91C0097E-4727-4B99-9A73-C3D2616AD455}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{40AB30E8-E003-44C0-91A6-DAC08EF4DD33}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{40AB30E8-E003-44C0-91A6-DAC08EF4DD33}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{40AB30E8-E003-44C0-91A6-DAC08EF4DD33}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FEB797F3-672D-4569-AFC0-DDF0512652EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FEB797F3-672D-4569-AFC0-DDF0512652EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FEB797F3-672D-4569-AFC0-DDF0512652EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FEB797F3-672D-4569-AFC0-DDF0512652EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91C0097E-4727-4B99-9A73-C3D2616AD455}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91C0097E-4727-4B99-9A73-C3D2616AD455}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91C0097E-4727-4B99-9A73-C3D2616AD455}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91C0097E-4727-4B99-9A73-C3D2616AD455}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
