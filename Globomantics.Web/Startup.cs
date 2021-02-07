@@ -80,5 +80,21 @@ namespace Globomantics.Web
                 //endpoints.MapControllers();
             });
         }
+
+        //If present, gets called for the specific ENVIRONMENT
+        //and takes precedence over Configure method
+        //The Configure method can be used as a fallback method
+        //public void ConfigureDevelopment(IApplicationBuilder app, IWebHostEnvironment env)
+        //{
+        //}
+
+
+        //If present, gets called for the specific ENVIRONMENT
+        //and takes precedence over Configure method
+        //The Configure method can be used as a fallback method
+        //public void ConfigureQAI(IApplicationBuilder app, IWebHostEnvironment env)
+        //{
+        //}
     }
 }
+
