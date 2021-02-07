@@ -39,10 +39,14 @@ namespace Globomantics.Web
         // The ORDER OF THE MIDDLEWARE IS IMPORTANT! 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            //True if environment variable ASPNETCORE_ENVIRONMENT is equal to DEVELOPMENT
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            // Checks whatever environment variable ASPNETCORE_ENVIRONMENT name U want: for ex. QAI
+            if (env.IsEnvironment("QAI")) { }
 
             //Before UseRouting(), because it doesn't need routing information
             //js and css files
