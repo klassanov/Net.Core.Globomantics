@@ -5,24 +5,19 @@ using Globomantics.Models;
 
 namespace Globomantics.Services
 {
-    public class ConferenceApiService : IConferenceService
+    public class ProposaMemorylService : IProposalService
     {
-        public Task Add(ConferenceModel conferenceModel)
+        public Task Add(ProposalModel proposal)
         {
             throw new System.NotImplementedException();
         }
 
-        public Task<IEnumerable<ConferenceModel>> GetAll()
+        public Task<ProposalModel> Approve(int proposalId)
         {
             throw new System.NotImplementedException();
         }
 
-        public Task<ConferenceModel> GetById(int id)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public Task<StatisticsModel> GetStatistics()
+        public Task<IEnumerable<ProposalModel>> GetAll(int conferenceId)
         {
             throw new System.NotImplementedException();
         }

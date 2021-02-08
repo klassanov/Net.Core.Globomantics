@@ -14,6 +14,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Globomantics.Interfaces\Globomantics.Interfaces.csproj" />
+    <ProjectReference Include="..\Globomantics.Models\Globomantics.Models.csproj" />
     <ProjectReference Include="..\Globomantics.Services\Globomantics.Services.csproj" />
   </ItemGroup>
 
