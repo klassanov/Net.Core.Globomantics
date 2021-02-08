@@ -5,6 +5,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="bundleconfig.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="bundleconfig.json" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Globomantics.Interfaces\Globomantics.Interfaces.csproj" />
     <ProjectReference Include="..\Globomantics.Services\Globomantics.Services.csproj" />
   </ItemGroup>
