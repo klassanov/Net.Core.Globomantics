@@ -1,4 +1,6 @@
-﻿using Globomantics.Interfaces.Services;
+﻿using System.Threading.Tasks;
+using Globomantics.Interfaces.Services;
+using Globomantics.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Globomantics.Web.Controllers
@@ -12,9 +14,32 @@ namespace Globomantics.Web.Controllers
             this.conferenceService = conferenceService;
         }
 
-        public string Index()
+        public async Task<IActionResult> Index()
         {
-            return "Hello from the Index method";
+            ViewBag.Title = "Conferences";
+            return View(await conferenceService.GetAll());
         }
+
+        [HttpGet]
+        public IActionResult Add()
+        {
+            ViewBag.Title = "Add Conference";
+            return View(new ConferenceModel());
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Add(ConferenceModel conference)
+        {
+            if (ModelState.IsValid)
+            {
+                await this.conferenceService.Add(conference);
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return View(conference);
+            }
+        }
+
     }
 }

@@ -29,6 +29,7 @@ namespace Globomantics.Web
             //My own "Services"
             //"Services" stands for interfaces and implementations
             services.AddSingleton<IConferenceService, ConferenceMemoryService>();
+            services.AddSingleton<IProposalService, ProposaMemorylService>();
 
         }
 

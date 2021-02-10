@@ -8,19 +8,22 @@ namespace Globomantics.Services
 {
     public class ConferenceMemoryService : IConferenceService
     {
-        private static int maxConferenceId;
-        private static readonly List<ConferenceModel> conferences = new List<ConferenceModel>();
+        private int maxConferenceId;
+        private readonly List<ConferenceModel> conferences;
 
         public ConferenceMemoryService()
         {
-            conferences.Add(new ConferenceModel { Id = 1, Name = "Pluralsight Conference", AtendeeTotal = 50, Location = "Varna" });
-            conferences.Add(new ConferenceModel { Id = 2, Name = "Geek Conference", AtendeeTotal = 70, Location = "Sofia" });
-            maxConferenceId = conferences.Max(c => c.Id);
+            this.conferences = new List<ConferenceModel>(){
+                new ConferenceModel { Id = 1, Name = "Pluralsight Conference", AtendeeTotal = 50, Location = "Varna" },
+                new ConferenceModel { Id = 2, Name = "Geek Conference", AtendeeTotal = 70, Location = "Sofia" }
+            };
+
+            this.maxConferenceId = conferences.Max(c => c.Id);
         }
 
         public Task Add(ConferenceModel conference)
         {
-            conference.Id = ++maxConferenceId;
+            conference.Id = ++this.maxConferenceId;
             conferences.Add(conference);
             return Task.CompletedTask;
         }
@@ -41,8 +44,8 @@ namespace Globomantics.Services
             {
                 return new StatisticsModel
                 {
-                    NumberOfAtendees = conferences.Sum(c => c.AtendeeTotal),
-                    AverageConferenceAtendees = conferences.Average(c => c.AtendeeTotal)
+                    NumberOfAtendees = this.conferences.Sum(c => c.AtendeeTotal),
+                    AverageConferenceAtendees = this.conferences.Average(c => c.AtendeeTotal)
                 };
             });
         }
