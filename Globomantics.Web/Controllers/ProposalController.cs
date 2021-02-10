@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using Globomantics.Interfaces.Services;
+using Globomantics.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Globomantics.Web.Controllers
@@ -21,6 +22,34 @@ namespace Globomantics.Web.Controllers
             ViewBag.Title = $"Proposals for conference {conference.Name} {conference.Location}";
             ViewBag.ConferenceId = conference.Id;
             return View(await this.proposalService.GetAll(conferenceId));
+        }
+
+        [HttpGet]
+        public IActionResult Add(int conferenceId)
+        {
+            ViewBag.Title = "Add proposal";
+            return View(new ProposalModel { ConferenceId = conferenceId });
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Add(ProposalModel proposal)
+        {
+            if (ModelState.IsValid)
+            {
+                await this.proposalService.Add(proposal);
+                return RedirectToAction("Index", new { conferenceId = proposal.ConferenceId });
+            }
+            else
+            {
+                return View(proposal);
+            }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Approve(int proposalId)
+        {
+            var proposal = await this.proposalService.Approve(proposalId);
+            return RedirectToAction("Index", new { conferenceId = proposal.ConferenceId });
         }
     }
 }
