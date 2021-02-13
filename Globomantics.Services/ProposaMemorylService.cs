@@ -16,7 +16,7 @@ namespace Globomantics.Services
             this.proposals = new List<ProposalModel>()
             {
                 new ProposalModel{Id=1, Speaker="Adam Freeman", ConferenceId=1, Title=".NET 5 Talk"},
-                new ProposalModel{Id=1, Speaker="Toma Brusarski", ConferenceId=1, Title=".How do we do it at Fourth"}
+                new ProposalModel{Id=2, Speaker="Toma Brusarski", ConferenceId=1, Title=".How do we do it at Fourth"}
             };
 
             this.maxProposalId = this.proposals.Max(x => x.Id);

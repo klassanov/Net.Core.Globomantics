@@ -1,0 +1,30 @@
+﻿@model ProposalModel
+
+<tr>
+    <td>@Model.Title</td>
+    <td>@Model.Speaker</td>
+    <td>
+        @if (Model.Approved)
+        {
+            <span>Yes</span>
+        }
+        else
+        {
+            <span>No</span>
+        }
+    </td>
+    <td>
+        @if (!Model.Approved)
+        {
+            <form asp-action="Approve" asp-route-proposalId="@Model.Id" method="post">
+                <button type="submit" class="btn btn-dark">
+                    Approve
+                </button>
+            </form>
+            @*<a asp-action="Approve" asp-route-proposalId="@Model.Id">
+                    Approve
+                </a>*@
+        }
+    </td>
+
+</tr>
