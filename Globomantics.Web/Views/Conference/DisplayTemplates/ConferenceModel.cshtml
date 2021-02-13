@@ -1,0 +1,13 @@
+﻿@model ConferenceModel
+
+<tr>
+    <td>@Model.Name</td>
+    <td>@Model.Location</td>
+    <td>@Model.Start.ToString("dd.MM.yyyy")</td>
+    <td>@Model.AtendeeTotal</td>
+    <td>
+        <a asp-controller="Proposal" asp-action="Index" asp-route-conferenceId="@Model.Id">
+            Proposals
+        </a>
+    </td>
+</tr>
