@@ -1,11 +1,5 @@
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Globomantics.Web
 {
@@ -18,6 +12,14 @@ namespace Globomantics.Web
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
+
+                //Deviate from defaults and configure other configuration sources
+                //.ConfigureAppConfiguration((ctx, cfg) =>
+                //{
+                //    cfg.AddInMemoryCollection();
+                //    cfg.AddCommandLine();
+                //    cfg.AddEnvironmentVariables();
+                //})
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
