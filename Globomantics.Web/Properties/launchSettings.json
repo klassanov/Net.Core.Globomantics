@@ -17,8 +17,7 @@
       "launchBrowser": true,
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
-      },
-      "use64Bit": false
+      }
     },
     "Globomantics.Web": {
       "commandName": "Project",
