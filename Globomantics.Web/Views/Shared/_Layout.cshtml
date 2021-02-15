@@ -29,6 +29,9 @@
                 @RenderBody()
             </div>
         </div>
+        <div class="row">
+            @await Component.InvokeAsync("Statistics")
+        </div>
     </div>
 </body>
 </html>
