@@ -36,6 +36,9 @@
             @*@await Component.InvokeAsync("Greeting", new { greeting = "Samo Levski" })*@
             @await Component.InvokeAsync("Greeting")
         </div>
+        <div class="row">
+            <vc:greeting greeting="Rendered by a tag helper"></vc:greeting>
+        </div>
     </div>
 </body>
 </html>
