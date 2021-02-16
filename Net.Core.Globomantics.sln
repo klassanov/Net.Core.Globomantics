@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Globomantics.Interfaces", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Globomantics.Services", "Globomantics.Services\Globomantics.Services.csproj", "{91C0097E-4727-4B99-9A73-C3D2616AD455}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Globomantics.Models", "Globomantics.Models\Globomantics.Models.csproj", "{237FF898-4BEE-4169-BCF4-BE6085C0DC31}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Globomantics.Models", "Globomantics.Models\Globomantics.Models.csproj", "{237FF898-4BEE-4169-BCF4-BE6085C0DC31}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
